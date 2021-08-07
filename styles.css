@@ -1,0 +1,382 @@
+/*==================== GOOGLE FONTS ====================*/
+
+@import url('https://fonts.google.com/specimen/Manrope');
+
+/*==================== VARIABLES CSS ====================*/
+
+:root {
+    --header-height: 6rem;
+    /*========== Colors ==========*/
+    --title-color: hsl(0, 0%, 9%);
+    --text-color: hsl(0, 0%, 65%);
+    --button-color: hsl(30, 90%, 49%);
+    /*========== Font and typography ==========*/
+    --body-font: 'Manrope', sans-serif;
+    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+    --big-font-size: 3.2rem;
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 2.25rem;
+    --h3-font-size: 2.175rem;
+    --normal-font-size: 2rem;
+    --small-font-size: 1.8rem;
+    --smaller-font-size: 1.6rem;
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    /*========== Margenes Bottom ==========*/
+    /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-3: 3rem;
+    --section-padding: 5rem 0;
+    /*========== GRID ==========*/
+    --num-of-grid-col: 4;
+}
+
+
+/*==================== BASE ====================*/
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+p {
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+
+/*==================== REUSABLE CSS CLASSES ====================*/
+
+.section {
+    padding: var(--section-padding);
+}
+
+
+/*==================== LAYOUT ====================*/
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 120rem;
+    padding: 0 1.5rem;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(var(--num-of-grid-col), 1fr);
+    gap: 0 1.5rem;
+}
+
+
+/*==================== HEADER ====================*/
+
+#header {
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+.main_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hamburger-menu {
+    font-size: 2rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 1500;
+}
+
+.hamburger-menu .fa-times {
+    display: none;
+}
+
+.menu-open .hamburger-menu .fa-times {
+    display: block;
+}
+
+.menu-open .hamburger-menu .fa-bars {
+    display: none;
+}
+
+.nav-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: hsl(0, 19%, 93%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1400;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.5s;
+}
+
+.menu-open .nav-list {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nav-item:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.nav-link,
+.nav-btn-link {
+    display: block;
+    color: var(--text-color);
+    font-size: 3rem;
+    font-weight: var(--font-semi-bold);
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    padding: 1rem;
+}
+
+.nav-link:hover,
+.nav-btn-link:hover {
+    color: var(--button-color);
+}
+
+
+/*==================== HERO ====================*/
+
+.hero-img,
+.hero-content {
+    grid-column: span 4;
+}
+
+.main-heading {
+    margin: var(--mb-3) 0;
+    font-size: var(--big-font-size);
+}
+
+.author {
+    margin-top: var(--mb-3);
+    display: flex;
+    align-items: center;
+}
+
+.author-img {
+    max-width: 8rem;
+}
+
+.author-details {
+    margin-left: var(--mb-1-5);
+}
+
+.author-details h3 {
+    font-size: var(--small-font-size);
+    margin-bottom: .5rem;
+}
+
+.author-details p {
+    font-weight: bold;
+}
+
+
+/*==================== COLUMN ====================*/
+
+.grid-column {
+    grid-column: span 4;
+    margin-bottom: var(--mb-3);
+}
+
+.grid-title {
+    margin: var(--mb-3) 0;
+}
+
+
+/*==================== FOOTER====================*/
+
+.main_footer {
+    padding: 3rem 0 2rem 0;
+}
+
+.copyrights {
+    margin-top: var(--mb-2);
+    font-size: var(--smaller-font-size);
+}
+
+
+/*=====================================================
+#################### MEDIA QUERIES ####################
+=====================================================*/
+
+@media screen and (min-width: 768px) {
+     :root {
+        --header-height: 8rem;
+        /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+        --big-font-size: 3.2rem;
+        --h1-font-size: 2.5rem;
+        --h2-font-size: 2.25rem;
+        --h3-font-size: 2.175rem;
+        --normal-font-size: 2rem;
+        --small-font-size: 1.8rem;
+        --smaller-font-size: 1.6rem;
+        /*========== Font weight ==========*/
+        --font-medium: 500;
+        --font-semi-bold: 600;
+        /*========== Margenes Bottom ==========*/
+        /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+        --mb-1: 1rem;
+        --mb-1-5: 1.5rem;
+        --mb-2: 2rem;
+        --mb-3: 3rem;
+        --section-padding: 8rem 0;
+        /*========== Margenes Bottom ==========*/
+        --num-of-grid-col: 8;
+    }
+    /*==================== HEADER ====================*/
+    .hamburger-menu {
+        display: none;
+    }
+    .nav-list {
+        position: initial;
+        top: 0;
+        left: 0;
+        width: initial;
+        height: initial;
+        background-color: transparent;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: initial;
+        opacity: 1;
+        transform: scale(1);
+    }
+    .nav-item:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 2rem;
+    }
+    .nav-link,
+    .nav-btn-link {
+        font-size: var(--smaller-font-size);
+        font-weight: initial;
+        text-transform: capitalize;
+        letter-spacing: 2px;
+        padding: 0;
+    }
+    .nav-btn-link {
+        color: var(--title-color);
+        padding: 1rem 2.5rem;
+        border-radius: .7rem;
+        background-color: var(--button-color);
+        font-weight: var(--font-semi-bold);
+    }
+    .nav-btn-link:hover {
+        color: #fff;
+        background-color: var(--title-color);
+    }
+    /*==================== HERO ====================*/
+    .hero-img,
+    .hero-content {
+        grid-column: span 8;
+    }
+    /*==================== COLUMN ====================*/
+    .grid-column {
+        grid-column: span 8;
+    }
+}
+
+
+/*=================================== >= 1000px  ===================================*/
+
+@media screen and (min-width: 1000px) {
+     :root {
+        --header-height: 10rem;
+        /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+        --big-font-size: 3.2rem;
+        --h1-font-size: 2.5rem;
+        --h2-font-size: 2.25rem;
+        --h3-font-size: 2.175rem;
+        --normal-font-size: 2rem;
+        --small-font-size: 1.8rem;
+        --smaller-font-size: 1.6rem;
+        /*========== Font weight ==========*/
+        --font-medium: 500;
+        --font-semi-bold: 600;
+        /*========== Margenes Bottom ==========*/
+        /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+        --mb-1: 1rem;
+        --mb-1-5: 1.5rem;
+        --mb-2: 2rem;
+        --mb-3: 3rem;
+        --section-padding: 10rem 0;
+        /*========== Margenes Bottom ==========*/
+        --num-of-grid-col: 12;
+    }
+    /*==================== HERO ====================*/
+    .hero-img {
+        grid-column: 1/5;
+    }
+    .hero-content {
+        grid-column: 5/-1;
+    }
+    .main-heading {
+        margin: 0 0 var(--mb-3) 0;
+    }
+    .author {
+        margin-top: var(--mb-3);
+    }
+    .author-img {
+        max-width: 5rem;
+    }
+    .author-details {
+        font-size: var(--smaller-font-size);
+    }
+    /*==================== COLUMN ====================*/
+    .grid-column {
+        grid-column: span 4;
+    }
+    /*==================== FOOTER====================*/
+    .footer-flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .copyrights {
+        margin-top: 0;
+    }
+}
